@@ -1,0 +1,2 @@
+red s(s(0)) + s(s(s(s(0)))). *** resposta -> s(s(s(s(s(s(0)))))) ->6
+set trace on . red (s(s(0)) + s(s(s(0)))) + s(s(s(s(0)))) . *** resposta -> s(s(s(s(s(s(s(s(s(0))))))))) -> 9

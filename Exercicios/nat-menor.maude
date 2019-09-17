@@ -1,0 +1,11 @@
+fmod NAT< is
+  protecting NAT-ADD . protecting BOOLEAN .
+  op _<_ : Nat Nat -> Boolean .
+  vars M N : Nat .
+  eq 0 < s(M) = true .
+  eq M < 0 = false .
+  eq s(M) < s(N) = M < N .
+endfm
+*** porque as equaçoes contidas aqui não estram em loop
+*** ou seja, nenhuma equação gera uma senteca que faz
+*** o camando aumentar a nivel que volte pra mesma senteça.

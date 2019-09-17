@@ -1,0 +1,38 @@
+fmod NAT1 is protecting NAT< .
+  op half : Nat -> Nat .
+  ops _monus_ diff min : Nat Nat -> Nat .
+  ops odd even : Nat -> Boolean .
+  ops _<=_ _>_ _>=_ _==_ : Nat Nat -> Boolean .
+
+  vars M N : Nat .
+  eq half 0 = 0 .
+  eq half s(0) = 0.
+  eq half s(s(M)) = s(0) + half(M) .
+  eq 0 < s(M) = true .
+
+  eq 0 monus M = 0 .
+  eq M monus 0 = M .
+  eq s(M) monus s(N)  =  M monus N .
+
+  eq odd 0 : false .
+  eq odd s(0) : true .
+  eq odd s(s(M)) : odd(M) .
+  eq even M : not(odd(M)) .
+
+  eq 0 == 0 = true .
+  eq 0 == M = false .
+  eq M == 0 = false .
+  eq s(M) == s(N) = M == N .
+
+  eq 0 < s(M) = true .
+  eq M < 0 = false .
+  eq s(M) < s(N) = M < N .
+
+  eq M <= N = if M < N or M == N then true else false fi .
+
+  eq M > N = not M <= N .
+
+  eq M >= N = not M < N .
+
+
+endfm

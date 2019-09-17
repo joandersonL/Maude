@@ -1,0 +1,3 @@
+./maude.linux64
+in nome_arquivo.maude *** comando para ler o arquivo maude
+set trace on ***comando maude para mostrar cada passo da derivação.  

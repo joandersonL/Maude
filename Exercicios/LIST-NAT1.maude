@@ -1,0 +1,26 @@
+fmod LIST-NAT1 is protecting NAT1 . protecting BOOLEAN1 .
+sort List .
+op nil : -> List [ctor] .
+op _ _ : List Nat -> List [ctor] .
+op length : List -> Nat .
+*** # of elements in a list
+op concat : List List -> List .
+*** Concatenate two lists
+op insertFront : Nat List -> List . *** Insert element first
+ops first last : List -> Nat .
+*** First/last element
+op empty? : List -> Boolean .
+*** Is the list empty?
+op rest : List -> List .
+*** Remove first element.
+op reverse : List -> List .
+*** Reverse list
+op _occursIn_ : Nat List -> Boolean .
+op remove : Nat List -> List .
+*** Remove element(s)
+op max : List -> Nat .
+*** Largest element in list
+op isSorted : List -> Boolean .
+*** Is the list sorted?
+vars N N’ : Nat .
+vars L L’ : List .

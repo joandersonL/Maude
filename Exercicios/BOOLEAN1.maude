@@ -1,0 +1,14 @@
+fmod BOOLEAN1 is protecting BOOLEAN .
+  op _implies_ : Boolean Boolean -> Boolean [prec 61] .
+  op if_then_else_fi : Boolean Boolean Boolean -> Boolean .
+
+  vars M N : BOOLEAN .
+
+  eq true implies false = false .
+  eq M implies true = true .
+  eq false implies M = true .
+
+  eq if true then M else N fi = M .
+  eq if false then M else N fi = N .
+
+endfm 

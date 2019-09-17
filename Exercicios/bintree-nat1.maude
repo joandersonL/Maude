@@ -1,0 +1,18 @@
+fmod BINTREE-NAT1 is protecting LIST-NAT1 .
+  sort BinTree .
+  op empty : -> BinTree [ctor] .
+  op bintree : BinTree Nat BinTree -> BinTree [ctor] .
+  ops preorder inorder postorder : BinTree -> List .
+  ops size weight : BinTree -> Nat .
+  op isSearchTree : BinTree -> Boolean .
+  op reverse : BinTree -> BinTree.
+
+  vars BT BT’ : BinTree .
+  vars N N’ : Nat .
+  eq preorder(empty) = nil .
+  eq preorder(bintree(BT, N, BT’))
+    = = insertFront(N, *** Root first, then left and right subtree:
+    concat(preorder(BT), preorder(BT’))) .
+  eq size(empty) = 0 .
+  eq size(bintree(BT, N, BT’)) = s(size(BT) + size(BT’)) .
+endfm

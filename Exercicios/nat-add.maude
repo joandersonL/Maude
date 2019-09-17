@@ -1,0 +1,18 @@
+fmod NAT-ADD is
+  sort Nat .
+  op 0 : -> Nat [ctor] .
+  op s : Nat -> Nat [ctor] .
+  op _+_ : Nat Nat -> Nat .
+  op quandrado : Nat -> Nat .
+  vars M N : Nat .
+  *** Define the addition function recursively:
+
+  eq s(M) + N = s(M + N) . *** [prec 55].
+  eq 0 + M = M .
+  eq quandrado(0) = 0 .
+  eq quandrado(s(0)) = s(0) .
+  eq quandrado(s(M)) = s(M) + M + quandrado(M) . 
+endfm
+*** porque as equaçoes contidas aqui estão estão sempre reduzindo
+*** não possuindo nenhum caminho que leve a algun cirulo de calculo
+*** infinito.

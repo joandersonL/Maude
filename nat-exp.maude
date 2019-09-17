@@ -1,0 +1,8 @@
+fmod NAT-EXP is protecting NAT-MULT .
+  op square : Nat -> Nat .
+  op _ˆ_ : Nat Nat -> Nat .
+  vars M N : Nat .
+  eq square(N) = N * N .
+  eq M ˆ 0 = s(0) .
+  eq M ˆ s(N) = M * (M ˆ N) .
+endfm
