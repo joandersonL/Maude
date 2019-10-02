@@ -1,0 +1,41 @@
+fmod Saida_MATRIZ is
+  ***protecting LIST .
+  sorts Matriz LIST{NAT} .
+  subsort LIST{NAT} < Matriz .
+
+  op empty : -> Matriz [ctor] .
+  op _||_ : LIS LIST{NAT} -> Matriz [ctor assoc id: empty] .
+  op saida : Matriz -> BOOL [ctor].
+
+  vars M M' : Matriz .
+  var L L' L1 L1' L2 L2' :  LIST{NAT} .
+  var x1 x2 x3 x4 : NAT .
+  ---base
+  eq saida(M || L 3 || M') = true .
+  eq saida(M || 3 L || M') = true .
+  eq saida(L 3 L'|| M) = true .
+  eq saida(M || L 3 L') = true .
+
+  --- recursivo General
+  eq saida(M || L1 x1 L1'|| L x2 3 x3 L'|| L2 x4 L2'|| M') =
+    if x1 = 0 end length(L1) = length(L) end length(L1') = length(L')
+      then saida(M || L1 3 L1'|| L x2 2 x3 L'|| L2 x4 L2'|| M')
+          or saida(M || L1 2 L1'|| L x2 3 x3 L'|| L2 x4 L2'|| M')
+    else
+      if x2 = 0
+        then saida(M || L1 x1 L1'|| L 3 2 x3 L'|| L2 x4 L2'|| M')
+          or saida(M || L1 x1 L1'|| L 2 3 x3 L'|| L2 x4 L2'|| M')
+      else
+        if x3 = 0
+          then saida(M || L1 x1 L1'|| L x2 2 3 L'|| L2 x4 L2'|| M')
+            or saida(M || L1 x1 L1'|| L x2 3 2 L'|| L2 x4 L2'|| M')
+        else
+          if x4=0 and length(L2) = length(L) end length(L2') = length(L')
+            then saida(M || L1 x1 L1'|| L x2 2 x3 L'|| L2 3 L2'|| M')
+          else false
+        fi
+      fi
+    fi .
+  eq saida(M) = false [owise] .
+
+endfm
